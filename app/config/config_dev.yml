@@ -36,6 +36,7 @@ monolog:
 
 assetic:
     use_controller: true
+    bundles:        [ AppBundle ]
 
 #swiftmailer:
 #    delivery_address: me@example.com
