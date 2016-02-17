@@ -77,7 +77,8 @@ doctrine:
         # them from the app/config/parameters.yml file. The reason is that config.yml
         # stores options that change the application behavior and parameters.yml
         # stores options that change from one server to another
-        url: "%database_url%"
+        driver: pdo_sqlite
+        path: "%kernel.root_dir%/data/blog.sqlite"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -95,3 +96,21 @@ swiftmailer:
 knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
+
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  info
+        console:
+            type:   console
+            bubble: false
+        # uncomment to get logging in your browser
+        # you may have to allow bigger header sizes in your Web server configuration
+        #firephp:
+        #    type:   firephp
+        #    level:  info
+        #chromephp:
+        #    type:   chromephp
+        #    level:  info
