@@ -10,8 +10,6 @@
         <title>{% block title %}Symfony Demo application{% endblock %}</title>
 
         {% block stylesheets %}
-        {# uncomment the following lines to compile SCSS assets with Assetic
-
             {% stylesheets filter="scssphp" output="css/app.css"
                 "%kernel.root_dir%/Resources/assets/scss/bootstrap.scss"
                 "%kernel.root_dir%/Resources/assets/scss/font-awesome.scss"
@@ -20,9 +18,7 @@
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
-        #}
-
-            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+            {#<link rel="stylesheet" href="{{ asset('css/app.css') }}"> #}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -35,7 +31,9 @@
                     <div class="container">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="{{ path('homepage') }}">
-                                Symfony Demo
+                                {% image '%kernel.root_dir%/Resources/assets/media/theodo-logo-medium.png' %}
+                                <img src="{{ asset_url }}" alt="Theodo" />
+                                {% endimage %}
                             </a>
 
                             <button type="button" class="navbar-toggle"
