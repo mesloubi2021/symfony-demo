@@ -26,3 +26,4 @@ install:
 
 script:
   - phpunit -c app
+  
