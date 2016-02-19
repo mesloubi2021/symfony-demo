@@ -58,8 +58,35 @@ class BlogController extends Controller
         return $this->render('blog/tests.html.twig', array('answer' => $answer));
     }
 
-    public function add($string) {
-        return $string;
+    public function add($string)
+    {
+        $pre_numbers = explode( "\n", $string);
+        $delim = ',';
+        $neg_number_list = '';
+        $it = 0;
+        if (substr($pre_numbers[0],0,2) == "//") {
+            $delim = substr($pre_numbers[0], 2);
+            $it++;
+        }
+
+        $result = 0;
+
+        for (;$it < count($pre_numbers);$it++) {
+            $numbers = explode($delim, $pre_numbers[$it]);
+            for ($i = 0;$i<count($numbers);$i++) {
+                if ($numbers[$i] < 0) {
+                    $neg_number_list .= $numbers[$i].", ";
+                }
+                elseif ($numbers[$i] <= 1000) {
+                    $result += $numbers[$i];
+                }
+            }
+        }
+
+        if ($neg_number_list != '')
+            throw new \Exception("negatives not allowed : ".$neg_number_list);
+
+        return $result;
     }
 
     /**
