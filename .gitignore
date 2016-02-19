@@ -9,3 +9,10 @@
 /bin/
 /composer.phar
 .idea/
+.vagrant/
+Capfile
+Gemfile
+Gemfile.lock
+Vagrantfile
+ansible.cfg
+devops/

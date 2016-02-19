@@ -49,6 +49,20 @@ class BlogController extends Controller
     }
 
     /**
+     * @Route("/tests/{string}", name="blog_tests")
+     * @Route("/tests/", name="blog_tests_no_string", defaults={"string"=""})
+     */
+    public function testAction($string)
+    {
+        $answer = $this->add($string);
+        return $this->render('blog/tests.html.twig', array('answer' => $answer));
+    }
+
+    public function add($string) {
+        return $string;
+    }
+
+    /**
      * @Route("/posts/{slug}", name="blog_post")
      *
      * NOTE: The $post controller argument is automatically injected by Symfony

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_tests' %}
+
+{% block main %}
+    {{ answer }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}
