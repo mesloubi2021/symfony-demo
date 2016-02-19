@@ -10,9 +10,10 @@
 /composer.phar
 .idea/
 .vagrant/
+ansible.cfg
 Capfile
 Gemfile
 Gemfile.lock
 Vagrantfile
-ansible.cfg
 devops/
+
