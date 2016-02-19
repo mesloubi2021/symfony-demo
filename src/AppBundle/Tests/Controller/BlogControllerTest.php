@@ -42,7 +42,7 @@ class BlogControllerTest extends WebTestCase
     public function testAddZeroLength() {
         $blog = new BlogController();
         $result = $blog->add("");
-        $this->assertEquals(5, $result);
+        $this->assertEquals(0, $result);
     }
 
     public function testAddOneLength() {
