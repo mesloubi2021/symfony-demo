@@ -39,7 +39,6 @@ class BlogController extends Controller
      */
     public function indexAction($page)
     {
-        theodo();
         $query = $this->getDoctrine()->getRepository('AppBundle:Post')->queryLatest();
 
         $paginator = $this->get('knp_paginator');
